@@ -12,19 +12,29 @@ draggables.forEach(draggable => {
 });
 
 containers.forEach(container=>{
+    console.dir(container);
     container.addEventListener("dragover",(e)=>{
-        
         e.preventDefault();
-        console.log(e);
         const getAfterElement = getDragElement(container, e.clientY);
+        console.log(getAfterElement);
         const dragable = document.querySelector('.dragging');
-        container.appendChild(dragable);
+        if(getAfterElement == null){
+            container.appendChild(dragable);
+        } else {
+            container.insertBefore(dragable, getAfterElement);
+        }
+        
     });
 });
 
 function getDragElement(container,y){
     const graggableElements = [...container.querySelectorAll('.dragable:not(.dragging)')];
-    graggableElements.reduce((closest, child)=>{
-        console.log(closest, child);
-    }, {offset: Number.POSITIVE_INFINITY})
+    return graggableElements.reduce((closest, child)=>{
+        const box = child.getBoundingClientRect();
+        const offset = y -box.top -box.height/2;
+        if(offset<0 && offset>closest.offset){
+            return {offset: offset, element: child};
+        }
+        return closest;
+    }, {offset: Number.NEGATIVE_INFINITY}).element;
 };
