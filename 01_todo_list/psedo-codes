@@ -1,0 +1,46 @@
+START
+
+DISPLAY an empty list area on the screen
+DISPLAY an input box for entering a new task
+DISPLAY an "Add Task" button
+
+FUNCTION loadTasks():
+    READ "tasks" from sessionStorage
+    IF tasks exist:
+        CONVERT JSON string back to array
+        FOR each task in array:
+            CREATE a list item (li)
+            SET its text to the task text
+            IF task is marked completed:
+                APPLY "completed" style
+            ADD "Complete" button
+            ADD "Delete" button
+            APPEND to list area
+
+FUNCTION saveTasks():
+    CREATE an empty array
+    FOR each task item in the list:
+        STORE task text + completion status in array
+    CONVERT array into JSON string
+    SAVE JSON string in sessionStorage as "tasks"
+
+WHEN user clicks "Add Task" button OR presses Enter:
+    READ text from input box
+    IF text is not empty:
+        CREATE a new task item
+        APPEND it to the list
+        CALL saveTasks()
+        CLEAR the input box
+
+WHEN user clicks "Complete" button:
+    TOGGLE the "completed" style for that task
+    CALL saveTasks()
+
+WHEN user clicks "Delete" button:
+    REMOVE that task item from the list
+    CALL saveTasks()
+
+ON PAGE LOAD:
+    CALL loadTasks()
+
+END
