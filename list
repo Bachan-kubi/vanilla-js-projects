@@ -1,0 +1,87 @@
+🔹 Basic Projects
+
+Counter App – Increase, decrease, reset a number.
+
+Digital Clock – Show current time updating every second.
+
+Stopwatch / Timer – Start, pause, reset timer.
+
+Random Quote Generator – Display random quotes on button click.
+
+To-Do List – Add, delete, mark tasks as complete.
+
+Background Color Changer – Change background color on button click.
+
+Form Validation – Validate email, password, etc. before submission.
+
+Palindrome Checker – Check if a string is the same forwards/backwards.
+
+Word Counter – Count words and characters in a text area.
+
+Simple Calculator – Perform add, subtract, multiply, divide.
+
+🔹 DOM & Event Handling Projects
+
+Image Slider / Carousel – Navigate through images with arrows or auto-slide.
+
+Modal / Popup Window – Open/close modal with overlay.
+
+Accordion / FAQ Section – Expand/collapse content.
+
+Light/Dark Mode Toggle – Switch themes with one click.
+
+Weather App (using API) – Show live weather by city.
+
+Search Filter – Filter items in a list as you type.
+
+Tabs Component – Switch between tabbed content.
+
+Tooltip – Show extra info when hovering over an element.
+
+Image Zoom Effect – Zoom in/out on hover.
+
+Scroll-to-Top Button – Smooth scroll back to top.
+
+🔹 Fun & Games
+
+Guess the Number Game – Random number guessing with hints.
+
+Rock Paper Scissors Game – Play against the computer.
+
+Tic Tac Toe – Two-player grid game.
+
+Memory Card Game – Match pairs of cards.
+
+Whack-a-Mole Game – Click moles that appear randomly.
+
+Snake Game – Classic snake game with arrow keys.
+
+Quiz App – Multiple-choice quiz with scoring.
+
+Typing Speed Test – Check words per minute.
+
+Dice Roller – Roll dice and show random numbers.
+
+Magic 8 Ball – Random answers to yes/no questions.
+
+🔹 Intermediate (API & Storage)
+
+Movie App (using API) – Search movies and display details.
+
+Weather Dashboard – With forecast (API).
+
+Currency Converter – Convert between currencies using API.
+
+Recipe App – Search recipes (API).
+
+Expense Tracker – Track income/expenses with localStorage.
+
+Notes App – Save notes with localStorage.
+
+Bookmark Manager – Save and manage links.
+
+Music Player – Play/pause, next/previous, volume control.
+
+Chat App (basic) – Using localStorage (offline).
+
+E-commerce Cart – Add/remove items with total price.
