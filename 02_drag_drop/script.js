@@ -1,6 +1,7 @@
 const containers = document.querySelectorAll('.container');
 const draggables = document.querySelectorAll('.dragable');
-console.log(draggables);
+const list = document.querySelector('ul');
+console.dir(Object.getPrototypeOf(list));
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
