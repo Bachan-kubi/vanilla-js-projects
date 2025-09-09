@@ -1,0 +1,149 @@
+🌱 Phase 1: Fundamentals (Beginner)
+
+👉 Goal: Understand what the DOM is and how to interact with it.
+
+What is the DOM?
+
+Relationship between HTML, CSS, and JS.
+
+DOM tree: nodes, elements, attributes, text.
+
+document object.
+
+Selecting Elements
+
+getElementById, getElementsByClassName, getElementsByTagName.
+
+querySelector, querySelectorAll (modern way).
+
+Changing Content
+
+textContent, innerHTML, innerText.
+
+Change attributes with setAttribute, getAttribute.
+
+Change styles with .style.
+
+✅ Practice:
+
+Change text on button click.
+
+Swap an image source dynamically.
+
+🌿 Phase 2: Events & Interaction (Intermediate)
+
+👉 Goal: Make your page interactive.
+
+Event Listeners
+
+addEventListener, event types (click, mouseover, keydown, etc.).
+
+Event object (event.target, event.preventDefault).
+
+Event Bubbling & Delegation
+
+Capturing vs bubbling.
+
+Delegate events to parent elements for performance.
+
+Forms
+
+Input values with .value.
+
+Validate and submit forms with JS.
+
+✅ Practice:
+
+Create a form that validates input before submitting.
+
+Build a simple to-do list (add, edit, delete items).
+
+🌳 Phase 3: DOM Manipulation (Advanced Basics)
+
+👉 Goal: Dynamically create, modify, and remove elements.
+
+Creating & Removing
+
+createElement, append, appendChild, prepend.
+
+remove, removeChild.
+
+insertBefore, replaceChild.
+
+Class & Style Management
+
+.classList.add/remove/toggle/contains.
+
+Modify inline and external styles.
+
+Traversing DOM
+
+parentNode, children, firstChild, nextElementSibling.
+
+✅ Practice:
+
+Drag-and-drop items between containers.
+
+Accordion menu.
+
+🌲 Phase 4: Advanced DOM (Pro Level)
+
+👉 Goal: Handle complex UI & performance.
+
+DOM Performance
+
+Minimize reflows/repaints.
+
+Use DocumentFragment for batch operations.
+
+Storage
+
+LocalStorage & SessionStorage.
+
+Save and restore DOM state.
+
+Mutation Observer
+
+Watch DOM changes dynamically.
+
+Shadow DOM & Custom Elements
+
+Basics of Web Components.
+
+Encapsulation of styles.
+
+✅ Practice:
+
+Build a note-taking app with localStorage.
+
+Create custom modal, tabs, or dropdown.
+
+Build a photo gallery with lazy loading.
+
+🌴 Phase 5: Mastery & Projects
+
+👉 Goal: Apply everything in real projects.
+
+Project Ideas:
+
+✅ To-do list app (with localStorage).
+
+✅ Calculator (DOM events + dynamic updates).
+
+✅ Weather app (fetch API + DOM rendering).
+
+✅ Kanban board (drag & drop + storage).
+
+✅ Interactive quiz app.
+
+🔑 Tips to Master DOM
+
+Always read the MDN docs for methods.
+
+Start small but finish projects.
+
+Learn Vanilla JS first before libraries (React, Vue).
+
+Debug with console.log() and Chrome DevTools.
+
+Try to recreate parts of real apps (Instagram feed, Trello board).

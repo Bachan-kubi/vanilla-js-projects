@@ -11,7 +11,6 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     display: flex;
-    align-items: center;
     justify-content: center;
     margin: 50px auto;
 }
@@ -19,7 +18,23 @@
     text-align: center;
     margin-bottom: 20px;
 }
+hr{
+    margin-bottom: 25px;
+}
 .show-list {
-    background: rgb(119, 113, 115);
+    background: rgb(241, 230, 234);
     margin-top: 15px;
+}
+input#new-task {
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 15px;
+} 
+#add-task{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
 }
