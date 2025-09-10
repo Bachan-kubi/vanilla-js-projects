@@ -3,8 +3,7 @@ START
 DISPLAY an empty list area on the screen
 DISPLAY an input box for entering a new task
 DISPLAY an "Add Task" button
-
-FUNCTION loadTasks():
+TION loadTasks():
     READ "tasks" from sessionStorage
     IF tasks exist:
         CONVERT JSON string back to array

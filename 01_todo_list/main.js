@@ -9,5 +9,4 @@ function  addTask() {
     const list = document.createElement('li');
     list.innerHTML = taskAdded;
     listContainer.appendChild(list);
-
 }
