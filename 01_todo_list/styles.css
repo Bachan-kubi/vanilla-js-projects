@@ -88,5 +88,19 @@ button{
     font-weight: bold;
     color: var(--text);
     outline: none;
+    cursor: pointer;
+}
+#task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+.task{
+    width: 100%;
+    display: flex;
+    background-color: var(--secondary-background);
+    padding: 12px;
 }
 
