@@ -37,7 +37,6 @@ function updateTask() {
         `
         list.addEventListener("change", ()=>toggelTaskCompleted(index));
         taskList.append(list);
-        
     });
 }
 
