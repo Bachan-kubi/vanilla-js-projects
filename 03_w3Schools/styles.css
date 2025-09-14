@@ -1,0 +1,26 @@
+.myStyle{
+    padding: 25px;
+    width: 100%;
+    font-size: 25px;
+    background-color: yellow;
+    font-weight: bold;
+}
+.new{
+    padding: 10px;
+    background-color: red;
+    color: black;
+    width: 50%;
+}
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
+  background: lightgray;
+  border: none;
+  cursor: pointer;
+}
+/* element has same class */
+.btn.active {
+  background: teal;
+  color: white;
+  font-weight: bold;
+}
