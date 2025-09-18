@@ -43,4 +43,31 @@ function myLine() {
 document.getElementById("redirect").addEventListener("click", ()=>{
     window.location.href="https://javascript.info/styles-and-classes";
     window.location.replace("https://javascript.info/styles-and-classes");
-})
+});
+// overlya div/image
+function on() {
+    console.log("object");
+    document.getElementById("overlay").style.display = "block";
+}
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+// vdos
+const vdos = document.getElementById("myVdo");
+console.dir(vdos);
+// Get the video
+var video = document.getElementById("myVideo");
+
+// Get the button
+var btn = document.getElementById("myBtn");
+
+// Pause and play the video, and change the button text
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}

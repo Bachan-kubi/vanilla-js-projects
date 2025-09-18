@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>W3 projects</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <h4>click try it button to see the change made!</h4>
     <button onclick="changeStyle()">Add Class to Eleme</button>
     <button onclick="removeClass()">Remove Class</button>
     <button onclick="newClass()">Change Class</button>
     <div id="myDiv">
-        <h1>I am learning classList and how to add styles with classList object!!</h1>
+      <h1>
+        I am learning classList and how to add styles with classList object!!
+      </h1>
     </div>
-<section>
-    <h3>active class:</h3>
-<div class="btn-group">
-  <button class="btn active">Button 1</button>
-  <button class="btn">Button 2</button>
-  <button class="btn">Button 3</button>
+    <section>
+      <h3>active class:</h3>
+      <div class="btn-group">
+        <button class="btn active">Button 1</button>
+        <button class="btn">Button 2</button>
+        <button class="btn">Button 3</button>
+      </div>
+    </section>
+    <section>
+      <button id="ntm-on" onclick="myLine()">onlin</button>
+      <h1 id="demo"></h1>
+      <h1>Redirect webpages</h1>
+      <button id="redirect">Redirect</button>
+    </section>
+    <!-- zoom hover -->
+     <section>
+        <h1>Keep mouse hover on colored div to see zoom in and out!</h1>
+        <div class="zoom"></div>
+        <div class="zoom-one"></div>
+     </section>
+     <section class="po">
+        <div class="one">one</div>
+        <!-- <div class="two">two</div> -->
+     </section>
+     <!-- download -->
+      <a href="./index.html" download="">download here</a>
+      <!-- overlay -->
+      <section id="overlay" onclick="off()">
+        <h2>Learn overlay with fun</h2>
+      </section>
+      <section><h1>ki hoilo</h1>
+        <button onclick="on()">Click for overlay</button>
+      </section>
+      <!-- vdos -->
+       <video autoplay loop muted id="myVideo">
+        <source src="rain.mp4" type="video/mp4">
+       </video>
+       <div class="content">
+  <h1>Heading</h1>
+  <p>Lorem ipsum...</p>
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <button id="myBtn" onclick="myFunction()">Pause</button>
 </div>
-</section>
-<section>
-    <button id="ntm-on" onclick="myLine()">onlin</button>
-    <h1 id="demo"></>
-    <h1>Redirect webpages</h1>
-    <button id="redirect">Redirect</button>
-</section>
+
 
     <script src="./classList.js"></script>
-</body>
+  </body>
 </html>

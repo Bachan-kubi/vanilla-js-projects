@@ -24,3 +24,72 @@
   color: white;
   font-weight: bold;
 }
+.zoom{
+    padding: 10px;
+    margin: 25px;
+    transform: tranform 0.2s;
+    background-color: teal;
+    width: 250px;
+    height: 250px;
+}
+.zoom:hover{
+   transform: translate(50%, 50%);
+    color: limegreen;
+}
+.zoom-one{
+     width: 250px;
+  height: 250px;
+  background-color: teal;
+  position: absolute;      /* take element out of normal flow */
+  top: 50%;                /* move to middle vertically */
+  left: 50%;               /* move to middle horizontally */
+  transform: translate(-50%, -50%);
+}
+.po{
+    width: 100%;
+    height: 50%;
+    background-color: red;
+    position: relative;
+}
+.one{
+    width: 250px;
+    height: 250px;
+    background-color: green;
+    margin: 25px;
+    padding: 15px;
+    
+}
+
+.two{
+    width: 250px;
+    height: 250px;
+    background-color: rgb(204, 230, 204);
+    margin: 25px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+   /* Use transform: translate(-50%, -50%) only with absolute/fixed positioning.
+
+   /* overlay */
+   #overlay{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+   }
+   #overlay h2{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
