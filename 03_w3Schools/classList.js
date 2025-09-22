@@ -59,7 +59,7 @@ console.dir(vdos);
 var video = document.getElementById("myVideo");
 
 // Get the button
-var btn = document.getElementById("myBtn");
+// var btn = document.getElementById("myBtn");
 
 // Pause and play the video, and change the button text
 function myFunction() {
@@ -71,3 +71,18 @@ function myFunction() {
     btn.innerHTML = "Play";
   }
 }
+
+// modal
+const modalBtn = document.getElementById("btn-modal");
+const modalContent = document.querySelector(".model-content");
+console.log(modalContent);
+const closeBtn = document.querySelector('.close');
+console.log(closeBtn);
+
+modalBtn.addEventListener("click", ()=>{
+    modalContent.style.display = "block";
+});
+closeBtn.addEventListener("click", ()=>{
+    console.log('ki');
+    modalContent.style.display = "none";
+})
