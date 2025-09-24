@@ -7,11 +7,14 @@
   </head>
   <body>
     <div>
-      <main id="bg-color" style="width: 250px; height: 300px">koi</main>
-      <button id="btn-change">Change</button>
+      <main id="bg-color" style="width: 250px; height: 300px; color: red; margin: 70px auto;">Color </main>
+      <button id="btn-change" onclick="bgChange()">Change</button>
     </div>
 
     <script>
+        //1. select dom
+        //2. create fucnton that generate random color for background
+        //3. function - start with hash that ensures hexacolor with random number- math floor with random number - multiply them with hexadecimal codes for color-make sure padding starts with 0 whatever the number- set interval time to seee the changes- 
       const bgColor = document.getElementById("bg-color");
       const btn = document.getElementById("btn-change");
 
@@ -20,13 +23,15 @@
         return colorBg;
       }
       setInterval(()=>{
-
           bgColor.style.backgroundColor = changeColor();
       }, 1000);
     //   button click also work when clicked!!
       btn.addEventListener("click", ()=>{
         bgColor.style.backgroundColor = changeColor();
       });
+      function bgChange() {
+         bgColor.style.backgroundColor = changeColor();
+      }
       
       
     </script>
