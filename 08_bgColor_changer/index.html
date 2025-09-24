@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Color Changer</title>
+  </head>
+  <body>
+    <div>
+      <main id="bg-color" style="width: 250px; height: 300px">koi</main>
+      <button id="btn-change">Change</button>
+    </div>
+
+    <script>
+      const bgColor = document.getElementById("bg-color");
+      const btn = document.getElementById("btn-change");
+
+      function changeColor() {
+        const colorBg = "#"+ Math.floor(Math.random()*16777215).toString(16).padStart(6, "0");
+        return colorBg;
+      }
+      setInterval(()=>{
+
+          bgColor.style.backgroundColor = changeColor();
+      }, 1000);
+    //   button click also work when clicked!!
+      btn.addEventListener("click", ()=>{
+        bgColor.style.backgroundColor = changeColor();
+      });
+      
+      
+    </script>
+  </body>
+</html>
