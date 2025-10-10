@@ -44,7 +44,7 @@ async function updateWeatherInfo(city) {
     showDisplaySection(notFoundSection);
     return;
   }
-  console.log(weatherData);
+  // console.log(weatherData);
   const {
     name: country,
     main: { temp, humidity },
@@ -71,7 +71,7 @@ async function updateForecastInfo(city) {
       forecastWeather.dt_txt.includes(timeTaken) &&
       !forecastWeather.dt_txt.includes(todayDate)
     ) {
-      console.log(forecastData);
+      // console.log(forecastData);
       updateForecastItem(forecastWeather);
     }
   });
