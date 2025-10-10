@@ -11,6 +11,7 @@ const humidityText = document.querySelector(".humidity-txt-value");
 const windText = document.querySelector(".wind-txt-value");
 const weatherSummaryImg = document.querySelector(".weather-summary-img");
 const currentDateText = document.querySelector(".current-date-text");
+const forecastItemsContainer = document.querySelector(".forecast-item-container");
 // weather info elements
 searchButton.addEventListener("click", () => {
   if (cityInput.value.trim() !== "") {
@@ -62,26 +63,62 @@ async function updateWeatherInfo(city) {
 }
 async function updateForecastInfo(city) {
   const forecastData = await getFetchData("forecast", city);
-  console.log(forecastData);
+  const timeTaken = "12:00:00";
+  const todayDate = new Date().toISOString().split("T")[0];
+  forecastItemsContainer.innerHTML = "";
+  forecastData.list.forEach((forecastWeather) => {
+    if (
+      forecastWeather.dt_txt.includes(timeTaken) &&
+      !forecastWeather.dt_txt.includes(todayDate)
+    ) {
+      console.log(forecastData);
+      updateForecastItem(forecastWeather);
+    }
+  });
+  // console.log(todayDate);
+  // console.log(forecastData);
+}
+function updateForecastItem(forecastWeather){
+  console.log(forecastWeather);
+  const {
+    dt_txt: date,
+    main: { temp },
+    weather: [{ id }],
+  }=forecastWeather;
+  const dateTaken = new Date(date);
+  const dateOptions = {
+    day: "2-digit",
+    month: "short",
+  };
+  const dateResult = dateTaken.toLocaleDateString("en-US", dateOptions);
+  const forecastItem = `
+    <div class="forecast-item">
+            <h5 class="forecast-item-date regular-text">${dateResult}</h5>
+            <img src="./assets/weather/${getWeateherIcon(id)}" class="forecast-item-img" alt="">
+            <h5 class="forecast-item-temp">${Math.round(temp)}°C</h5>
+          </div>
+  `;
+  forecastItemsContainer.insertAdjacentHTML("beforeend",forecastItem);
+
+  
 }
 function getCurrentDate() {
   const currentDate = new Date();
-  console.log(currentDate);
   const options = {
     weekday: "short",
     day: "2-digit",
     month: "short",
-  }
+  };
   return currentDate.toLocaleDateString("en-US", options);
 }
 function getWeateherIcon(id) {
-  if(id<=232) return "thunderstorm.svg";
-  if(id<=321) return "drizzle.svg";
-  if(id<=531) return "rain.svg";
-  if(id<=531) return "rain.svg";
-  if(id<=622) return "snow.svg";
-  if(id<=781) return "atmosphere.svg";
-  if(id<=800) return "clear.svg";
+  if (id <= 232) return "thunderstorm.svg";
+  if (id <= 321) return "drizzle.svg";
+  if (id <= 531) return "rain.svg";
+  if (id <= 531) return "rain.svg";
+  if (id <= 622) return "snow.svg";
+  if (id <= 781) return "atmosphere.svg";
+  if (id <= 800) return "clear.svg";
   else return "clouds.svg";
 }
 
