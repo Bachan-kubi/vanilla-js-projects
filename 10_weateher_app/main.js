@@ -79,7 +79,7 @@ async function updateForecastInfo(city) {
   // console.log(forecastData);
 }
 function updateForecastItem(forecastWeather){
-  console.log(forecastWeather);
+  // console.log(forecastWeather);
   const {
     dt_txt: date,
     main: { temp },
