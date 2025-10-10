@@ -1,0 +1,69 @@
+{coord: {…}, weather: Array(1), base: 'stations', main: {…}, visibility: 10000, …}
+base
+: 
+"stations"
+clouds
+: 
+{all: 75}
+cod
+: 
+200
+coord
+: 
+{lon: 90, lat: 24}
+dt
+: 
+1760090710
+id
+: 
+1210997
+main
+: 
+feels_like
+: 
+34.77
+grnd_level
+: 
+1005
+humidity
+: 
+70
+pressure
+: 
+1006
+sea_level
+: 
+1006
+temp
+: 
+29.89
+temp_max
+: 
+29.89
+temp_min
+: 
+29.89
+[[Prototype]]
+: 
+Object
+name
+: 
+"Bangladesh"
+rain
+: 
+{1h: 0.49}
+sys
+: 
+{country: 'BD', sunrise: 1760054104, sunset: 1760096323}
+timezone
+: 
+21600
+visibility
+: 
+10000
+weather
+: 
+[{…}]
+wind
+: 
+{speed: 2.1, deg: 345, gust: 3.51}
