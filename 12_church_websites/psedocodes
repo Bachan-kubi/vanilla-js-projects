@@ -1,0 +1,193 @@
+Prompt: Build a Modular Church Website (Express.js + MongoDB)
+
+Goal
+Create a production-ready, modular church website for {{church_name}} where new sections can be added easily over time. Use Express.js for the backend and MongoDB (Mongoose) for data storage. Provide a clean, modern frontend scaffold (Next.js or React SPA—your call) that consumes the backend API.
+
+High-Level Requirements
+
+Architecture:
+
+Backend: Node.js + Express.js, TypeScript preferred, structured by modules (e.g., modules/members, modules/sermons, etc.).
+
+Database: MongoDB with Mongoose models, validation, indexes.
+
+API: RESTful endpoints under /api/v1, OpenAPI (Swagger) docs auto-generated.
+
+Auth: Email/password + optional OAuth (Google), JWT access + refresh tokens, role-based access control (roles: admin, staff, member, guest).
+
+Config: dotenv for secrets, environment-based config, CORS, rate-limiting, Helmet, input validation (Zod/Joi).
+
+Logging & Errors: Centralized error handler, request logging (morgan/pino), health check endpoint /health.
+
+Testing: Jest + Supertest for API; include seed scripts & factory data.
+
+DevOps: Dockerfile + docker-compose (Mongo + app), production scripts, PM2 config.
+
+Core Data Models (MongoDB/Mongoose)
+Design schemas with validation, timestamps, soft delete flags where useful, and necessary indexes.
+
+Member
+
+firstName, lastName, email (unique), phone, gender, dob, address { line1, line2, city, state, postalCode, country }
+
+maritalStatus, membershipStatus (visitor|regular|member), baptismDate, joinDate
+
+roles (array: member|volunteer|leader|pastor|admin)
+
+smallGroups (refs), notes, createdBy, updatedBy
+
+Sermon
+
+title, speaker, series, date, passage, summary, tags, media { audioUrl, videoUrl, slidesUrl }
+
+Event
+
+title, description, start, end, location, category, registration { isRequired, capacity, attendees[] }
+
+Donation
+
+member (ref optional), amount, currency, method (cash|bank|online), purpose (tithe|offering|mission|other), txRef, status
+
+PrayerRequest
+
+name, contact, subject, details, isPublic, status (new|praying|answered)
+
+SmallGroup
+
+name, leader (ref Member), meetingTime, location, members[]
+
+PageSection (for dynamic site sections/CMS-like blocks)
+
+key (unique slug), type (hero|about|ministries|testimonials|cta|custom), content (JSON), order, isActive
+
+API Endpoints (examples)
+
+Auth: /api/v1/auth/register, /login, /refresh, /me, /logout
+
+Members (CRUD + search + pagination):
+
+GET /api/v1/members?search=&status=&page=&limit=
+
+POST /api/v1/members (admin/staff)
+
+PATCH /api/v1/members/:id (admin/staff)
+
+DELETE /api/v1/members/:id (soft delete)
+
+Sermons: list, filter by series/speaker/date, upload media links.
+
+Events: list upcoming/past, register attendee, cancel registration.
+
+Donations: record entries; expose a webhooks controller stub for future payment gateways.
+
+Prayer Requests: public create, admin moderate, optional public feed when isPublic=true.
+
+Page Sections: CRUD to add/arrange homepage or inner page blocks dynamically.
+
+Frontend (scaffold)
+
+Choose Next.js (recommended) or React + Vite.
+
+UI: TailwindCSS + Headless UI (or Ant Design) with a clean church-appropriate theme.
+
+Pages: Home, About, Sermons (list + detail), Events (calendar + detail), Ministries, Small Groups, Give/Donation, Prayer Requests, Contact, Admin Dashboard.
+
+Admin Dashboard: manage Members, Sermons, Events, Donations, Prayer Requests, Page Sections; role-based menus.
+
+Extensibility
+
+New section types should be addable by creating a new PageSection.type with a React component mapper.
+
+New modules follow a CLI or template (controller, service, model, routes, tests).
+
+Support i18n (en, bn) with translation files.
+
+Security & Compliance
+
+Input sanitization, validation layers, strong password policy, account lockout after repeated failures.
+
+Data privacy: only admins see sensitive member data; audit fields (createdBy, updatedBy).
+
+Backups: sample mongodump/mongorestore scripts, seed and migration strategy.
+
+Quality Bar / Deliverables
+
+Codebase with clear structure: src/config, src/modules/*, src/middlewares, src/utils, src/app.ts, src/server.ts.
+
+Mongoose Models, Controllers, Services, Routes, DTO/validators, unit + integration tests.
+
+OpenAPI (Swagger) at /docs.
+
+Seed script to create demo data (members, sermons, events).
+
+Admin role seeded, with first login instructions.
+
+README: setup, env vars, run scripts, Docker usage, deployment tips (NGINX reverse proxy), and .env sample.
+
+Example queries for members (search by name/email/phone, filter by membershipStatus, paginate, sort).
+
+Performance: indexes for common queries (email unique, member name text index, event start, sermon date).
+
+File uploads: abstraction for media storage (local now, S3-ready later).
+
+Email service abstraction (e.g., nodemailer) with templated emails for confirmations.
+
+Non-Functional Requirements
+
+Clean code (ESLint + Prettier), commit conventions, GitHub Actions CI (lint, test, build).
+
+Response standard: { success, message, data, meta }.
+
+Pagination pattern with page, limit, total, hasNextPage.
+
+100% environment-driven configuration.
+
+Example .env (document in README)
+
+PORT=4000
+MONGODB_URI=mongodb://localhost:27017/{{db_name}}
+JWT_ACCESS_SECRET=change_me
+JWT_REFRESH_SECRET=change_me
+CORS_ORIGINS=http://localhost:3000
+NODE_ENV=development
+
+
+Acceptance Criteria
+
+I can: create/login as admin → add a member → list/search members → add sermons/events → publish page sections to the homepage.
+
+Public site loads sections dynamically from PageSection.
+
+Swagger docs show all routes with request/response schemas.
+
+Docker Compose boots API + MongoDB successfully.
+
+Tests pass for critical flows (auth, member CRUD, search/pagination).
+
+Stretch (Optional)
+
+Calendar view for events; ICS export.
+
+Donation reports (by purpose/date).
+
+SMS integration hook (queued jobs).
+
+Social meta tags & sitemap.
+
+Accessible UI (WCAG-friendly).
+
+Generate the full project scaffold, including backend code (Express + Mongoose), a minimal frontend, README, Docker files, seed data, and Swagger docs.
+unzip church-site-scaffold.zip
+cd church-site-scaffold
+docker compose up --build -d
+# Backend: http://localhost:4000  (Swagger at /docs)
+# Frontend: http://localhost:3000
+# Backend
+cd backend && cp .env.example .env
+npm i && npm run swagger:gen && npm run dev
+
+# Frontend
+cd ../frontend
+npm i
+export NEXT_PUBLIC_API_URL=http://localhost:4000
+npm run dev

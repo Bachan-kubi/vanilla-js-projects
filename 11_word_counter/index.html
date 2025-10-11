@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counting App</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en" data-theme="light">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Word Counter • Live + Clean Regex + Top Words</title>
+        <link rel="stylesheet" href="./styles.css" />
+      </head>
+      <body>
+        <div class="container">
+          <header>
+            <div class="title">
+              🧮 Word Counter — Real‑time • Regex Clean • Frequencies • Theme
+              Toggle
+            </div>
+            <button id="themeBtn" class="toggle" aria-label="Toggle dark mode">
+              🌞 Light
+            </button>
+          </header>
+
+          <div class="row">
+            <!-- Left: Input -->
+            <section class="card">
+              <div class="controls">
+                <div class="muted">
+                  Type or paste your text below. Counts update in real‑time.
+                </div>
+                <label class="pill"
+                  >Top N words
+                  <input
+                    id="topN"
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="10"
+                    title="How many of the most frequent words to show"
+                  />
+                </label>
+              </div>
+              <textarea id="text" placeholder="Paste text here…"></textarea>
+              <div class="stats">
+                <div class="stat">
+                  <div class="label">Words</div>
+                  <div id="words" class="value">0</div>
+                </div>
+                <div class="stat">
+                  <div class="label">Characters</div>
+                  <div id="chars" class="value">0</div>
+                </div>
+                <div class="stat">
+                  <div class="label">Unique Words</div>
+                  <div id="unique" class="value">0</div>
+                </div>
+              </div>
+              <div class="footer">
+                Punctuation is ignored using a Unicode‑aware regex. Split by
+                whitespace after cleanup. Toggle theme with the button or press
+                <span class="kbd">T</span>.
+              </div>
+            </section>
+
+            <!-- Right: Frequencies -->
+            <section class="card">
+              <h3 style="margin: 0 0 8px 0">Most Frequent Words</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 60%">Word</th>
+                    <th>Count</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody id="freqBody">
+                  <tr>
+                    <td colspan="3" class="muted">No data yet.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+
+          <p class="footer">
+            Tip: We normalize with
+            <span class="kbd">String.prototype.normalize('NFKC')</span> and
+            lowercase; words are sequences of letters/numbers. Apostrophes and
+            hyphens are removed during cleaning.
+          </p>
+        </div>
+
+        <script src="./main.js" type="module"></script>
+      </body>
+    </html>
+  </body>
+</html>
