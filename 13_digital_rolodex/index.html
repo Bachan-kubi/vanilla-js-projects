@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Rolodex</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Load JS after parsing with defer so DOM is ready -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Digital Rolodex</h1>
+
+    <form id="add-contact-form" autocomplete="on">
+      <h2>Add Contact</h2>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" required placeholder="Jane Doe" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>  <!-- fixed 'for' -->
+        <input type="email" id="email" required placeholder="jane@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone No</label>
+        <input type="tel" id="phone" required placeholder="+8801XXXXXXXXX" />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" placeholder="Search by name, email, or phone..." />
+    </div>
+
+    <div id="contact-list">
+      <h2>Contact List</h2>
+      <!-- cards will render here -->
+    </div>
+  </div>
+</body>
+</html>
