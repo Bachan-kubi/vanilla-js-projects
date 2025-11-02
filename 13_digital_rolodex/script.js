@@ -103,6 +103,7 @@
             // Check if the clicked element is a delete button
             if (e.target.classList.contains('delete-btn')) {
                 const contactId = e.target.dataset.id; // Get the ID from the data-id attribute
+                console.log(e.target);
                 myAddressBook.delete(contactId);
             }
         });
